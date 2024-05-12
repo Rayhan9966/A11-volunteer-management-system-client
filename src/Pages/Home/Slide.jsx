@@ -18,7 +18,7 @@ import imagebg2 from '../../../public/bg2.jpg'
 import imagebg3 from '../../../public/bg3.jpg'
 import imagebg4 from '../../../public/bg4.jpg'
 
-export default function Carousel() {
+export default function Slide() {
 //   const progressCircle = useRef(null);
 //   const progressContent = useRef(null);
 //   const onAutoplayTimeLeft = (s, time, progress) => {

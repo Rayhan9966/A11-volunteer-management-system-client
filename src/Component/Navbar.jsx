@@ -9,23 +9,29 @@ const Navbar = () => {
         <div className='flex-1'>
           <div className='flex gap-2 items-center'>
             <img className='w-auto h-10' src='https://i.postimg.cc/65YBXdvB/34-Wp-Ikb-Es-Tm4-Z.webp' alt='' />
-            <span className='font-bold'>Helping Hands</span>
+            <Link to='/'><span className='text-xl font-semibold'>Helping Hands</span></Link>
           </div>
         </div>
         <div className='flex-none'>
           <ul className='menu menu-horizontal px-1'>
-            <li>
-              <div>Home</div>
+          <div className='flex gap-80'>
+          <div className='flex text-xl font-semibold'>
+          <li>
+              <Link to='/'><div>Home</div></Link>
             </li>
             <li>
               <div>Need Volunteer</div>
             </li>
+          </div>
   
-           {!user &&(
-             <li>
+         <div>
+         {!user &&(
+             <li className='text-xl font-semibold'>
              <Link to='/login'>Login</Link>
            </li>
            )}
+         </div>
+          </div>
           </ul>
   
           {user &&

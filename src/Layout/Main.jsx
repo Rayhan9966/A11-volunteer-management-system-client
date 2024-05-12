@@ -13,7 +13,7 @@ const Main = () => {
 <div className='min-h-[calc(100vh-306px)]'>
 <Outlet></Outlet>
 </div>
-
+<br />
             {/* Footer */}
 <Footer></Footer>
 

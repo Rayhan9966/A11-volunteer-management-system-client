@@ -44,7 +44,7 @@ const Banner = ({image,text}) =>
           </h1>
           <br /><br />  <br /><br />
           <Link
-            to='/add-job'
+            to='/add-volunteer-post'
             className='w-full px-5 py-4 mt-5 text-5xl text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md lg:w-auto hover:bg-green-500 focus:outline-none focus:bg-green-500'
           >
             Be a Volunteer
