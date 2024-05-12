@@ -6,12 +6,18 @@ import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/SignUp/Register';
 import NeedVolunteer from '../Pages/NeedVolunteer';
+import AddVolunteer from '../Pages/AddVolunteer';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import NotFoundPage from '../Pages/NotFoundPage';
+
+
 
 
 const router= createBrowserRouter([
     {
 path :'/',
 element: <Main></Main>,
+errorElement: <NotFoundPage></NotFoundPage>,
 children:[
     {
 
@@ -28,10 +34,19 @@ children:[
     path:'/register',
     element:<Register></Register>,
 },
+{
+
+    path:'/addvolunteer',
+    element:
+   <ProtectedRoute> <AddVolunteer></AddVolunteer>
+   </ProtectedRoute>,
+},
     {
 
         path:'/needvolunteer',
-    element:<NeedVolunteer></NeedVolunteer>,
+    element:<ProtectedRoute>
+        <NeedVolunteer></NeedVolunteer>
+    </ProtectedRoute>
 }
 ]
     },
