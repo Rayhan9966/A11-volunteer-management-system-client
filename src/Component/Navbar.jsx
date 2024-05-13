@@ -60,7 +60,7 @@ const Navbar = () => {
             className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
             <li>
-              <div className='justify-between'>Add Volunteer Post</div>
+            <Link to='/addvolunteer'><div className='justify-between'>Add Volunteer Post</div></Link>
             </li>
             <li>
               <div>My Volunteer Post</div>

@@ -9,6 +9,7 @@ import NeedVolunteer from '../Pages/NeedVolunteer';
 import AddVolunteer from '../Pages/AddVolunteer';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 import NotFoundPage from '../Pages/NotFoundPage';
+import ViewPage from '../Pages/viewPage/ViewPage';
 
 
 
@@ -30,10 +31,18 @@ children:[
     path:'/login',
     element:<Login></Login>,
 },
+
 {
 
     path:'/register',
     element:<Register></Register>,
+},
+{
+
+    path:'/viewpage',
+    element:<ProtectedRoute>
+        <ViewPage></ViewPage>
+    </ProtectedRoute>,
 },
 {
 
