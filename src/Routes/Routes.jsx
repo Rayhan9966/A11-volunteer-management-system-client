@@ -31,6 +31,7 @@ children:[
     path:'/login',
     element:<Login></Login>,
 },
+  
 
 {
 
@@ -50,13 +51,16 @@ children:[
     element:
    <ProtectedRoute> <AddVolunteer></AddVolunteer>
    </ProtectedRoute>,
+    
 },
     {
 
         path:'/needvolunteer',
     element:<ProtectedRoute>
         <NeedVolunteer></NeedVolunteer>
-    </ProtectedRoute>
+    </ProtectedRoute>,
+    //  loader :()=> fetch(`${import.meta.env.VITE_API_URL}/post`)
+    loader: ()=> fetch('http://localhost:9000/post')
 }
 ]
     },

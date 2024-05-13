@@ -62,7 +62,7 @@ const VolunteerCard = ({post}) => {
                     </div>
                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
                      
-                        <Link to='/viewpage'><button className='btn btn-success'>View Details</button></Link>
+                        <Link to='/needvolunteer'><button className='btn btn-success'>View Details</button></Link>
                     </div>
                 </div>
             </div>

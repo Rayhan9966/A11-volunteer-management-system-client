@@ -1,12 +1,55 @@
 
 import React from 'react';
+import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2'
 
 const AddVolunteer = () => {
+    const handleAddPost=event =>{
+        event.preventDefault();
+
+        const form =event.target;
+        const name=form.name.value;
+        const thumbnail=form.thumbnail.value;
+        const title=form.title.value;
+        const description=form.description.value;
+        const category=form.category.value;
+        const location=form.location.value;
+        const volunteerneed=form.volunteerneed.value;
+        const deadline=form.deadline.value;
+        // const orgname=form.orgname.value;
+        const email=form.email.value;
+
+       const newPost={name,thumbnail,title,description, category,location, volunteerneed,deadline,email}
+console.log(newPost);
+
+
+//fetch(`${import.meta.env.VITE_API_URL}/post`
+fetch('http://localhost:9000/post',{
+    method:'POST',
+    headers:{
+        'content-type':'application/json'
+    },
+    body:JSON.stringify(newPost)
+
+})
+.then(res=>res.json())
+.then(data=>{
+    console.log(data);
+    if(data.insertedId){
+        Swal.fire({
+            title: 'Success!',
+            text: 'Added Successfully!',
+            icon: 'success',
+            confirmButtonText: 'Done'
+          })
+    }
+})
+    }
     return (
-        <div className='bg-[#e4eee8] p-24'>
+        <div className='bg-[#cacaa5] p-24'>
 
             <h1 className='font-extrabold text-4xl'>Add Volunteer</h1>
-            <form >
+            <form onSubmit={handleAddPost} >
 
 {/* //row */}
                 <div className='md:flex gap-4  mb-6'>
