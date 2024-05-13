@@ -12,12 +12,16 @@ const AddVolunteerCard = ({post}) => {
 
 <p>Date:{deadline}</p>
 
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Watch</button>
+   
+    <div className="join join-vertical  gap-4 lg:join-horizontal">
+  <button className="btn btn-secondary join-item">Delete</button>
+  <button className="btn btn-primary join-item">Update</button>
+  <button className="btn btn-warning join-item">Apply</button>
+</div>
     </div>
   </div>
 </div>
-        </div>
+        
     );
 };
 
