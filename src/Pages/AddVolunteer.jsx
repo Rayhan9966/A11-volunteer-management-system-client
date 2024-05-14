@@ -24,7 +24,7 @@ console.log(newPost);
 
 
 //fetch(`${import.meta.env.VITE_API_URL}/post`
-fetch('http://localhost:9000/post',{
+fetch('https://volunteer-management-server-neon.vercel.app/post',{
     method:'POST',
     headers:{
         'content-type':'application/json'

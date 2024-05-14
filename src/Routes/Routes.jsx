@@ -29,7 +29,8 @@ children:[
 
     index:true,
     element:<Home></Home>,
-    loader :()=> fetch(`${import.meta.env.VITE_API_URL}/posts`),
+    // loader :()=> fetch(`${import.meta.env.VITE_API_URL}/posts`),
+    loader :()=> fetch('https://volunteer-management-server-neon.vercel.app/posts'),
 },
     {
 
@@ -40,7 +41,8 @@ children:[
 
     path:'/myvolunteer',
     element:<MyVolunteer></MyVolunteer>,
-    loader :()=> fetch(`${import.meta.env.VITE_API_URL}/post`),
+    // loader :()=> fetch(`${import.meta.env.VITE_API_URL}/post`),
+    loader :()=> fetch('https://volunteer-management-server-neon.vercel.app/post'),
 },
   
 
@@ -60,7 +62,7 @@ children:[
 
     path:'/updatePost/:id',
     element:<UpdatePost></UpdatePost>,
-    loader: ({params}) => fetch(`http://localhost:9000/post/${params.id}`)
+    loader: ({params}) => fetch(`https://volunteer-management-server-neon.vercel.app/post/${params.id}`)
 },
 {
 
@@ -84,7 +86,7 @@ children:[
         <NeedVolunteer></NeedVolunteer>
     </ProtectedRoute>,
     //  loader :()=> fetch(`${import.meta.env.VITE_API_URL}/post`)
-    loader: ()=> fetch('http://localhost:9000/post')
+    loader: ()=> fetch('https://volunteer-management-server-neon.vercel.app/post')
 }
 ]
     },

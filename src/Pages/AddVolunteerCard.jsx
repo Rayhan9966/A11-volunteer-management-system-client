@@ -18,7 +18,7 @@ Swal.fire({
   }).then((result) => {
     if (result.isConfirmed) {
     //   
-    fetch(`http://localhost:9000/post/${_id}`,{
+    fetch(`https://volunteer-management-server-neon.vercel.app/post/${_id}`,{
         method: 'DELETE'
     })
    
