@@ -11,6 +11,11 @@ import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
 import NotFoundPage from '../Pages/NotFoundPage';
 import ViewPage from '../Pages/viewPage/ViewPage';
 
+import UpdatePost from '../Pages/UpdatePost';
+import About from '../Pages/About/About';
+import MyVolunteer from '../Pages/MyVolunteer';
+
+
 
 
 
@@ -31,12 +36,31 @@ children:[
     path:'/login',
     element:<Login></Login>,
 },
+    {
+
+    path:'/myvolunteer',
+    element:<MyVolunteer></MyVolunteer>,
+    loader :()=> fetch(`${import.meta.env.VITE_API_URL}/post`),
+},
   
 
 {
 
     path:'/register',
     element:<Register></Register>,
+},
+{
+
+    path:'/about',
+    element:<ProtectedRoute>
+<About></About>
+    </ProtectedRoute>,
+},
+{
+
+    path:'/updatePost/:id',
+    element:<UpdatePost></UpdatePost>,
+    loader: ({params}) => fetch(`http://localhost:9000/post/${params.id}`)
 },
 {
 

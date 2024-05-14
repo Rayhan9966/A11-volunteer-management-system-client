@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const AddVolunteerCard = ({post}) => {
@@ -16,13 +17,26 @@ Swal.fire({
     confirmButtonText: "Yes, delete it!"
   }).then((result) => {
     if (result.isConfirmed) {
-    //   Swal.fire({
-    //     title: "Deleted!",
-    //     text: "Your file has been deleted.",
-    //     icon: "success"
-    //   });
-    console.log('dlt cnfrm');
+    //   
+    fetch(`http://localhost:9000/post/${_id}`,{
+        method: 'DELETE'
+    })
+   
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+        if (data.deletedCount> 0){
+            Swal.fire(
+                   "Deleted!",
+                     "Your Post has been deleted.",
+                   "success"
+                  )
+        }
+    })
+
     }
+
+
   });
     }
     return (
@@ -40,8 +54,9 @@ Swal.fire({
   <button onClick={()=>handleDelete(_id)} className="btn btn-secondary join-item">Delete</button>
 
 
-  <button className="btn btn-primary join-item">Update</button>
-  <button className="btn btn-warning join-item">Apply</button>
+  <Link to={`updatePost/${_id}`}>
+  <button className="btn btn-primary join-item">Update</button></Link>
+  <Link to='/addvolunteer'><button className="btn btn-warning join-item">Be A Volunteer</button></Link>
 </div>
     </div>
   </div>
