@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -8,6 +8,9 @@ const Register = () => {
 const navigate=useNavigate()
 const{createUser,updateUserProfile,user,setUser}=useContext(AuthContext)
 
+// const[error,setError]=useState("")
+// const [emailError,setEmailError]= useState("")
+
 const handleSignUp = async e => {
     e.preventDefault()
     const form = e.target
@@ -15,6 +18,25 @@ const handleSignUp = async e => {
     const name = form.name.value
     const photo = form.photo.value
     const pass = form.password.value
+
+//validation
+//     if(!/gmail\.com$/.test(email)){
+//       setEmailError("Email must end with @gmail.com")
+//       return
+//   }
+
+// if(password.length<6){
+// setError("Password Must be 6 characters")
+// return
+// }
+// if (!/^(?=.*[a-z])(?=.*[A-Z]).+$/
+// .test(password)){
+// setError("Must have upper case and lower case in password")
+// return
+// }
+// setError('')
+// setEmailError('')
+
     console.log({ email, pass, name, photo })
     try {
       //2. User Registration

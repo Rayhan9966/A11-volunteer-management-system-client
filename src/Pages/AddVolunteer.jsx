@@ -1,14 +1,21 @@
 
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
-// import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const AddVolunteer = () => {
+    const [startDate, setStartDate] = useState(new Date());
+const{user}=useContext(AuthContext)
+
     const handleAddPost=event =>{
         event.preventDefault();
 
         const form =event.target;
-        const name=form.name.value;
+        // const name=form.name.value;
+        const name=user?.name
         const thumbnail=form.thumbnail.value;
         const title=form.title.value;
         const description=form.description.value;
@@ -17,7 +24,8 @@ const AddVolunteer = () => {
         const volunteerneed=form.volunteerneed.value;
         const deadline=form.deadline.value;
         // const orgname=form.orgname.value;
-        const email=form.email.value;
+        // const email=form.email.value;
+        const email=user?.email;
 
        const newPost={name,thumbnail,title,description, category,location, volunteerneed,deadline,email}
 console.log(newPost);
@@ -143,17 +151,21 @@ animal welfare.' name='category' className='input input-bordered w-full' />
                         <label className='lebel'>
                             <span className='lebel-text'>Deadline</span>
                         </label>
-                        <label className='input-group'>
+                        {/* <label className='input-group'>
                             <input type="text" placeholder='Deadline' name='deadline' className='input input-bordered w-full' />
-                        </label>
-
+                        </label> */}
+ <DatePicker className='border p-2  md:w-full rounded-md' selected={startDate} onChange={(date) => setStartDate(date)} />
                     </div>
-                    <div className='form-control md:w-1/2 ml-4'>
+                    {/* <label className='lebel-text'>Deadline</label>
+                    <DatePicker 
+
+                    selected={startDate} onChange={(date) => setStartDate(date)} /> */}
+                    <div className='form-control md:w-3/4 ml-4'>
                         <label className='lebel'>
                             <span className='lebel-text'>Organizer Name </span>
                         </label>
                         <label className='input-group'>
-                            <input type="text" placeholder='Name' name='name' className='input input-bordered w-full' />
+                            <input type="text" placeholder='Name' name='name'  className='input input-bordered w-full' />
                         </label>
 
                     </div>
@@ -169,7 +181,7 @@ animal welfare.' name='category' className='input input-bordered w-full' />
                             <span className='lebel-text'> Organizer email</span>
                         </label>
                         <label className='input-group'>
-                            <input type="email" placeholder=' Organizer email@gmail.com' name='email' className='input input-bordered w-full' />
+                            <input type="email" placeholder=' Organizer email@gmail.com' name='email' defaultValue={user?.email} className='input input-bordered w-full' />
                         </label>
 
                     </div>
