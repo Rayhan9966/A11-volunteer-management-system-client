@@ -31,6 +31,7 @@ Swal.fire({
                      "Your Post has been deleted.",
                    "success"
                   )
+              
         }
     })
 
@@ -51,7 +52,7 @@ Swal.fire({
 
    
     <div className="join join-vertical  gap-4 lg:join-horizontal">
-  <button onClick={()=>handleDelete(_id)} className="btn btn-secondary join-item">Delete</button>
+  {/* <button onClick={()=>handleDelete(_id)} className="btn btn-secondary join-item">Delete</button> */}
 
 
   <Link to={`updatePost/${_id}`}>
