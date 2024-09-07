@@ -54,8 +54,8 @@ Swal.fire({
     <div className="join join-vertical  gap-4 lg:join-horizontal">
   {/* <button onClick={()=>handleDelete(_id)} className="btn btn-secondary join-item">Delete</button> */}
 
-
-  <Link to={`updatePost/${_id}`}>
+  {/* <Link to={`/dashboard/updatebiodata/${bdata._id}`}> */}
+  <Link to={`/updatePost/${post._id}`}>
   <button className="btn btn-primary join-item">Update</button></Link>
   <Link to='/addvolunteer'><button className="btn btn-warning join-item">Be A Volunteer</button></Link>
 </div>
