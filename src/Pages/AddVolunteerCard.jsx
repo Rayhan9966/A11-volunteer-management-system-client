@@ -45,7 +45,8 @@ Swal.fire({
             <div className="card card-side bg-base-100 text-white dark:bg-gray-800 container ml-4 mr-4 px-4 mx-auto shadow-xl">
   <figure><img src={thumbnail} alt="Movie"/></figure>
   <div className="card-body">
-    <h2 className="card-title">Title: "{title}"</h2>
+    <h1 className="card-title">Title: "{title}"</h1>
+    <h2 className="card-title">Name: {name}</h2>
                     <p className='font-bold'>Description:-{description}</p>
 
 <p>Date:{deadline}</p>

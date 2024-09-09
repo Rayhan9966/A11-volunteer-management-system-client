@@ -58,6 +58,7 @@ const MyVolunteer = () => {
                             <tr>
                                 <th></th>
                                 <th>Tilte</th>
+                                <th>Name</th>
                                 <th>Description</th>
                                 <th>DeadLine</th>
                                 <th>Action</th>
@@ -69,6 +70,7 @@ const MyVolunteer = () => {
                      myvolunteer.map(myvolunteer=><tr key={myvolunteer._id}>
                              <th>#</th>
                              <td>{myvolunteer.title}</td>
+                             <td>{myvolunteer.name}</td>
                              <td>{myvolunteer.description}</td>
                              <td>{myvolunteer.deadline}</td>
                              <td>

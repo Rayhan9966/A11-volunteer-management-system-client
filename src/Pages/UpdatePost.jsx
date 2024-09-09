@@ -3,9 +3,10 @@ import DatePicker from "react-datepicker";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import "react-datepicker/dist/react-datepicker.css";
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 
 const UpdatePost = () => {
+    const navigate=useNavigate();
     const [startDate, setStartDate] = useState(new Date());
     const{user}=useContext(AuthContext)
 
@@ -55,6 +56,7 @@ if(data.modifiedCount>0){
         confirmButtonText: 'Done'
       })
 }
+navigate('/');
 })
 }
 
