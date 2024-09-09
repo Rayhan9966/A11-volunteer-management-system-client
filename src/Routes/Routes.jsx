@@ -62,7 +62,13 @@ children:[
 
     path:'/updatePost/:id',
     element:<UpdatePost></UpdatePost>,
-    loader: ({params}) => fetch(`https://volunteer-management-server-neon.vercel.app/post/${params.id}`)
+    // loader: async ({params}) => await fetch(`https://volunteer-management-server-neon.vercel.app/post/${params.id}`)
+    // loader: async ({params}) => { await fetch(`http://localhost:9000/post-details/${params.id}`)
+    loader: ({params}) =>  fetch(`https://volunteer-management-server-neon.vercel.app/post-details/${params.id}`)
+        
+    
+    
+    
 },
 {
 
@@ -87,6 +93,7 @@ children:[
     </ProtectedRoute>,
     //  loader :()=> fetch(`${import.meta.env.VITE_API_URL}/post`)
     loader: ()=> fetch('https://volunteer-management-server-neon.vercel.app/post')
+    // loader: ()=> fetch('http://localhost:5173/updatePost/post')
 }
 ]
     },
