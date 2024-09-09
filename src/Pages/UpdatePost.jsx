@@ -77,7 +77,7 @@ return (
                     <span className='lebel-text'>Thumbnail</span>
                 </label>
                 <label className='input-group'>
-                    <input type="text" placeholder='Thumbnail URL'defaultValue={ thumbnail}  name='thumbnail' className='input input-bordered w-full' />
+                    <input type="text" placeholder='Thumbnail URL' defaultValue={ thumbnail}  name='thumbnail' className='input input-bordered w-full' />
                 </label>
 
             </div>
@@ -164,7 +164,7 @@ animal welfare.' name='category' className='input input-bordered w-full' />
                 {/* <label className='input-group'>
                     <input type="text" placeholder='Deadline' name='deadline' className='input input-bordered w-full' />
                 </label> */}
-<DatePicker className='border p-2  md:w-full rounded-md' defaultValue={ deadline}   selected={deadline} onChange={(date) => setStartDate(date)} />
+<DatePicker className='border p-2  md:w-full rounded-md' defaultValue={ deadline}    selected={startDate} onChange={(date) => setStartDate(date)} />
             </div>
             {/* <label className='lebel-text'>Deadline</label>
             <DatePicker 

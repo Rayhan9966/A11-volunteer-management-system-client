@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const AddVolunteerCard = ({post}) => {
+  // const navigate=useNavigate();
     const { _id,name,thumbnail,title,description, category,location, volunteerneed,deadline,email } = post;
     const handleDelete=_id=>{
 console.log(_id);
@@ -33,6 +34,7 @@ Swal.fire({
                   )
               
         }
+       
     })
 
     }

@@ -4,54 +4,57 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from 'react-router-dom';
 
 
 const AddVolunteer = () => {
+    const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
-const{user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
-    const handleAddPost=event =>{
+    const handleAddPost = event => {
         event.preventDefault();
 
-        const form =event.target;
+        const form = event.target;
         // const name=form.name.value;
-        const name=user?.name
-        const thumbnail=form.thumbnail.value;
-        const title=form.title.value;
-        const description=form.description.value;
-        const category=form.category.value;
-        const location=form.location.value;
-        const volunteerneed=form.volunteerneed.value;
-        const deadline=startDate
+        const name = form.name.value;
+        const thumbnail = form.thumbnail.value;
+        const title = form.title.value;
+        const description = form.description.value;
+        const category = form.category.value;
+        const location = form.location.value;
+        const volunteerneed = form.volunteerneed.value;
+        const deadline = startDate
         // const orgname=form.orgname.value;
         // const email=form.email.value;
-        const email=user?.email;
+        const email = user?.email;
 
-       const newPost={name,thumbnail,title,description, category,location, volunteerneed,deadline,email}
-console.log(newPost);
+        const newPost = { name, thumbnail, title, description, category, location, volunteerneed, deadline, email }
+        console.log(newPost);
 
 
-//fetch(`${import.meta.env.VITE_API_URL}/post`
-fetch('https://volunteer-management-server-neon.vercel.app/post',{
-    method:'POST',
-    headers:{
-        'content-type':'application/json'
-    },
-    body:JSON.stringify(newPost)
+        //fetch(`${import.meta.env.VITE_API_URL}/post`
+        fetch('https://volunteer-management-server-neon.vercel.app/post', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newPost)
 
-})
-.then(res=>res.json())
-.then(data=>{
-    console.log(data);
-    if(data.insertedId){
-        Swal.fire({
-            title: 'Success!',
-            text: 'Added Successfully!',
-            icon: 'success',
-            confirmButtonText: 'Done'
-          })
-    }
-})
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Added Successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                    navigate('/');
+                }
+            })
     }
     return (
         <div className='bg-[#cacaa5] p-24'>
@@ -59,7 +62,7 @@ fetch('https://volunteer-management-server-neon.vercel.app/post',{
             <h1 className='font-extrabold text-4xl'>Add Volunteer</h1>
             <form onSubmit={handleAddPost} >
 
-{/* //row */}
+                {/* //row */}
                 <div className='md:flex gap-4  mb-6'>
 
                     <div className='form-control w-full'>
@@ -71,15 +74,15 @@ fetch('https://volunteer-management-server-neon.vercel.app/post',{
                         </label>
 
                     </div>
-                  
+
 
 
 
                 </div>
-{/* //row */}
+                {/* //row */}
                 <div className='md:flex gap-4  mb-6'>
 
-                   
+
                     <div className='form-control w-full'>
                         <label className='lebel'>
                             <span className='lebel-text'>Post Title</span>
@@ -93,7 +96,7 @@ fetch('https://volunteer-management-server-neon.vercel.app/post',{
 
 
                 </div>
-{/* //row */}
+                {/* //row */}
                 <div className='md:flex gap-4  mb-6'>
 
                     <div className='form-control md:w-1/2 '>
@@ -105,7 +108,7 @@ fetch('https://volunteer-management-server-neon.vercel.app/post',{
                         </label>
 
                     </div>
-                    <div className='form-control md:w-1/2 ml-4'>
+                    {/* <div className='form-control md:w-1/2 ml-4'>
                         <label className='lebel'>
                             <span className='lebel-text'>Category</span>
                         </label>
@@ -114,12 +117,24 @@ fetch('https://volunteer-management-server-neon.vercel.app/post',{
 animal welfare.' name='category' className='input input-bordered w-full' />
                         </label>
 
-                    </div>
+                    </div> */}
+                <div className='form-control md:w-1/2 ml-4'>
+                <label className='lebel'>
+                            <span className='lebel-text'>Category</span>
+                        </label>
+                <select name='category' className='input input-bordered w-full'>
+                        <option  disabled selected>Select Category</option>
+                        <option>Healthcare</option>
+                        <option>Education</option>
+                        <option>Animal Welfare</option>
+                        <option>Social Service</option>
+                    </select>
+                </div>
 
 
 
                 </div>
-{/* //row */}
+                {/* //row */}
                 <div className='md:flex gap-4 mb-6'>
 
                     <div className='form-control md:w-1/2 '>
@@ -144,7 +159,7 @@ animal welfare.' name='category' className='input input-bordered w-full' />
 
 
                 </div>
-{/* //row */}
+                {/* //row */}
                 <div className='md:flex gap-4  mb-6'>
 
                     <div className='form-control md:w-1/2 '>
@@ -154,7 +169,7 @@ animal welfare.' name='category' className='input input-bordered w-full' />
                         {/* <label className='input-group'>
                             <input type="text" placeholder='Deadline' name='deadline' className='input input-bordered w-full' />
                         </label> */}
- <DatePicker className='border p-2  md:w-full rounded-md' selected={startDate} onChange={(date) => setStartDate(date)} />
+                        <DatePicker className='border p-2  md:w-full rounded-md' selected={startDate} onChange={(date) => setStartDate(date)} />
                     </div>
                     {/* <label className='lebel-text'>Deadline</label>
                     <DatePicker 
@@ -165,15 +180,18 @@ animal welfare.' name='category' className='input input-bordered w-full' />
                             <span className='lebel-text'>Organizer Name </span>
                         </label>
                         <label className='input-group'>
-                            <input type="text" placeholder='Name' name='name'  className='input input-bordered w-full' />
+                            <input type="text" placeholder='Name' name='name' className='input input-bordered w-full' />
                         </label>
+                        {/* <label className='input-group'>
+                    <input type="text" defaultValue={ name}  placeholder='Name' name='name'  className='input input-bordered w-full' />
+                </label> */}
 
                     </div>
 
 
 
                 </div>
-{/* //row */}
+                {/* //row */}
                 <div className='md:flex gap-4  mb-6'>
 
                     <div className='form-control w-full'>
@@ -185,12 +203,12 @@ animal welfare.' name='category' className='input input-bordered w-full' />
                         </label>
 
                     </div>
-                  
+
 
 
 
                 </div>
-<input type='submit' value="ADD POST" className='btn text-2xl font-bold text-green-500 bg-green-200 btn-block'></input>
+                <input type='submit' value="ADD POST" className='btn text-2xl font-bold text-green-500 bg-green-200 btn-block'></input>
             </form>
 
 
