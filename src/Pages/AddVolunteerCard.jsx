@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const AddVolunteerCard = ({post}) => {
   // const navigate=useNavigate();
-    const { _id,name,thumbnail,title,description, category,location, volunteerneed,deadline,email } = post;
+    const { _id,name,thumbnail,title,description, category,location, volunteer_need,deadline,email } = post;
     const handleDelete=_id=>{
 console.log(_id);
 
@@ -61,6 +61,7 @@ Swal.fire({
   <Link to={`/updatePost/${_id}`}>
   <button className="btn btn-primary join-item">Update</button></Link>
   <Link to='/addvolunteer'><button className="btn btn-warning join-item">Be A Volunteer</button></Link>
+  <Link to={`/viewDetails/${_id}`}><button className="btn  btn-success join-item">View Details</button></Link>
 </div>
     </div>
   </div>

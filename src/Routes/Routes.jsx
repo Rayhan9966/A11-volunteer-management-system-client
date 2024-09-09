@@ -72,10 +72,11 @@ children:[
 },
 {
 
-    path:'/viewpage',
+    path:'/viewDetails/:id',
     element:<ProtectedRoute>
         <ViewPage></ViewPage>
     </ProtectedRoute>,
+      loader: ({params}) =>  fetch(`https://volunteer-management-server-neon.vercel.app/post-details/${params.id}`)
 },
 {
 

@@ -16,7 +16,7 @@ const Footer = () => {
                       alt=""
                     />
                     </a>
-                    <h1 className='text-xl font-bold'>Helping Hand</h1> 
+                    <h1 className='text-xl text-white font-bold'>Helping Hand</h1> 
                   
                </div>
                   <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">
@@ -39,7 +39,7 @@ const Footer = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      href="https://www.facebook.com/mdrayhan.uddin.7"
                       className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                       aria-label="Facebook"
                     >
@@ -53,7 +53,7 @@ const Footer = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      href="https://github.com/Rayhan9966"
                       className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
                       aria-label="Github"
                     >
